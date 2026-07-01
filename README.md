@@ -2,25 +2,40 @@
 
 This folder contains a MATLAB code for the two-dimensional Euler
 negative-vortex test used in the response.
- 
-## Run the standard PP accuracy test:
- 
-run_accuracy_standard_pp(201)    % second order
 
-run_accuracy_standard_pp(202)    % third order
- 
-computes the L1 errors and orders of density and pressure on the grids
-`32, 64, 128, 256`.
+## Requirements
+- MATLAB
+- No external packages are required.
+  
+## Standard PP Accuracy Test
 
-Equivalently, open `test.m` and use
+Run the helper script:
 
+```matlab
+run_accuracy_standard_pp(201)    % second-order scheme
+run_accuracy_standard_pp(202)    % third-order scheme
+```
+
+By default, this computes the L1 errors and orders of density and pressure on
+the grids
+
+```text
+32, 64, 128, 256
+```
+
+You can also run the same test through `test.m`.  Open `test.m` and set
+
+```matlab
 Nx = [32 64 128 256];
-
-basisType = 201;             % second order, or use 202 for third order
-
+basisType = 201;             % second order; use 202 for third order
 postprocessPPType = 'Standard-PP';
- 
-Then run `test`.
+```
+
+Then run
+
+```matlab
+test
+```
 
 ## Run the reviewer-recommended energy-shift diagnostic
 
@@ -43,3 +58,11 @@ limiter, then adds a cell-wise constant to the total-energy component.  The
 standard PP branch applies both the density and pressure scaling steps.
 
 ##  You can also run `test.m` to execute the full test case and inspect the overall program workflow.
+
+
+
+
+
+
+
+
